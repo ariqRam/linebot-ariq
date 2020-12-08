@@ -7,11 +7,15 @@
     "start": "node ./main.js"
   },
   "repository": {
-    "type" : "git",
-    "url" : "git+https://github.com/ariqathallah38/linebot-ariq.git"
+    "type": "git",
+    "url": "git+https://github.com/ariqathallah38/linebot-ariq.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariqathallah38/linebot-ariq/issues"
+  },
+  "homepage": "https://github.com/ariqathallah38/linebot-ariq#readme",
   "dependencies": {
     "@line/bot-sdk": "^7.1.0",
     "express": "^4.17.1"
