@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node ./main.js"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "git+https://github.com/ariqathallah38/linebot-ariq.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
