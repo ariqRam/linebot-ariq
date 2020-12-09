@@ -91,13 +91,13 @@ function handleEvent(event) {
 function handleText(message, replyToken) {
   var total = 0,
     s = message.text.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
-  if (s !== []) {
+  if (s.length !== 0) {
     while (s.length) {
       total += parseFloat(s.shift());
     }
     return replyText(replyToken, total);
   }
-  else if(s==[]){return replyText(replyToken, message.text)};
+  else if(s==[]){return replyText(replyToken, "Bukan merupakan operasi aritmetika")};
 }
 
 function handleImage(message, replyToken) {
