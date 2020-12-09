@@ -11,22 +11,22 @@ const client = new line.Client(config)
 const app = express();
 
 app.post('/webhook', line.middleware(config), (req, res) => {
-    if (!Array.isArray(req.body.events)) {
-      return res.status(500).end();
-    }
-    Promise
-      .all(req.body.events.map(event => {
-          if (event.replyToken === '00000000000000000000000000000000' ||
-            event.replyToken === 'ffffffffffffffffffffffffffffffff') {
-            return;
-          }
-          return handleEvent(event);
-      }))
-      .then(()=>res.end())
-      .catch((err)=>{
-        console.error(err);
-        res.status(500).end();
-      })
+  if (!Array.isArray(req.body.events)) {
+    return res.status(500).end();
+  }
+  Promise
+    .all(req.body.events.map(event => {
+      if (event.replyToken === '00000000000000000000000000000000' ||
+        event.replyToken === 'ffffffffffffffffffffffffffffffff') {
+        return;
+      }
+      return handleEvent(event);
+    }))
+    .then(() => res.end())
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    })
 });
 
 const replyText = (token, texts) => {
@@ -43,10 +43,10 @@ function handleEvent(event) {
       const message = event.message;
       switch (message.type) {
         case 'text':
-          if(event.message.text[0]=='!'){
+          if (event.message.text[0] == '!') {
             return replyText(event.replyToken, 'apaan sih');
           }
-          else{
+          else {
             return handleText(message, event.replyToken)
           }
         case 'image':
@@ -89,6 +89,14 @@ function handleEvent(event) {
 }
 
 function handleText(message, replyToken) {
+  var total = 0,
+    s = message.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
+  if (s !== []) {
+    while (s.length) {
+      total += parseFloat(s.shift());
+    }
+    return total;
+  }
   return replyText(replyToken, message.text);
 }
 
