@@ -90,7 +90,7 @@ function handleEvent(event) {
 
 function handleText(message, replyToken) {
   var total = 0,
-    s = message.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
+    s = message.text.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
   if (s !== []) {
     while (s.length) {
       total += parseFloat(s.shift());
