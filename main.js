@@ -95,7 +95,7 @@ function handleText(message, replyToken) {
     while (s.length) {
       total += parseFloat(s.shift());
     }
-    return total;
+    return replyText(replyToken, total);
   }
   else {return replyText(replyToken, message.text)};
 }
