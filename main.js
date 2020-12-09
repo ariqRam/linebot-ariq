@@ -97,7 +97,7 @@ function handleText(message, replyToken) {
     }
     return replyText(replyToken, total);
   }
-  else if(s==[]){return replyText(replyToken, "Bukan merupakan operasi aritmetika")};
+  else{return replyText(replyToken, "Bukan merupakan operasi aritmetika")};
 }
 
 function handleImage(message, replyToken) {
