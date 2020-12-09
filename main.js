@@ -97,7 +97,7 @@ function handleText(message, replyToken) {
     }
     return replyText(replyToken, total);
   }
-  else {return replyText(replyToken, message.text)};
+  else if(s==[]){return replyText(replyToken, message.text)};
 }
 
 function handleImage(message, replyToken) {
